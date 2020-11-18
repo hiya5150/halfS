@@ -7,7 +7,7 @@ import {StarshipComponent} from "./views/starship/starship.component";
 const routes: Routes = [
   {path: '', pathMatch: 'full', component: StarshipsComponent},
   {path: 'starships', component: StarshipsComponent},
-  {path: 'starships/:url', component: StarshipComponent},
+  {path: 'starship/:name', component: StarshipComponent},
 
 
 ];

@@ -15,7 +15,7 @@ export class StarshipsComponent implements OnInit {
   public starship: Starship[];
   expandedElement: Starship | null;
   public dataSource: MatTableDataSource<Starship>
-  displaySWColumns: string[] = ['name', 'url', 'model', 'manufacturer', 'StarWarsDetails'];
+  displaySWColumns: string[] = ['name', 'MGLT', 'model', 'crew', 'length','StarWarsDetails'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   // shareData: BehaviorSubject<any> = new BehaviorSubject({});

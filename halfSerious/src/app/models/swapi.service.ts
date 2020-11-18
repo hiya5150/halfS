@@ -10,7 +10,8 @@ import {Starship} from "./starship";
 })
 export class SwapiService {
   private apiData = new BehaviorSubject<Starship[]>(null)
-  public currentData = this.apiData.asObservable()
+  // private apiData = new BehaviorSubject()
+  // public currentData = this.apiData.asObservable()
   baseURL = 'https://swapi.dev/api/';
 
   constructor(private http: HttpClient) { }
