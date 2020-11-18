@@ -1,0 +1,50 @@
+<!--<span *ngIf="starship">-->
+<!--<p *ngFor="let res of starship">{{res?.name}} {{res?.url}} {{res?.model}} {{res?.manufacturer}} {{res?.id}}-->
+<!--&lt;!&ndash;  <app-starship routerLink="starship/"></app-starship>&ndash;&gt;-->
+<!--&lt;!&ndash;  <span [res1]="res1"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;  <button routerLink="/starship/{{url}}">Starship Details</button>&ndash;&gt;-->
+<!--</p>-->
+<!--</span>-->
+<!--&lt;!&ndash;<span *ngIf="starship.length > 0">&ndash;&gt;-->
+
+<div class="table">
+  <h1 matColumnDef="title">Star Wars</h1>
+  <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let res"> {{res?.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="url">
+      <th mat-header-cell *matHeaderCellDef> URL </th>
+      <td mat-cell *matCellDef="let res"> {{res?.url}} </td>
+    </ng-container>
+    <ng-container matColumnDef="model">
+      <th mat-header-cell *matHeaderCellDef> Model </th>
+      <td mat-cell *matCellDef="let res"> {{res?.model}} </td>
+    </ng-container>
+    <ng-container matColumnDef="manufacturer">
+      <th mat-header-cell *matHeaderCellDef> Manufacturer </th>
+      <td mat-cell *matCellDef="let res"> {{res?.manufacturer}} </td>
+    </ng-container>
+    <ng-container matColumnDef="StarWarsDetails">
+      <th mat-header-cell *matHeaderCellDef> StarWars Details </th>
+      <td mat-cell *matCellDef="let res">
+        <button mat-raised-button color="primary">StarWars Details</button>
+      </td>
+    </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displaySWColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displaySWColumns;"
+        class="example-element-row"
+        [class.example-expanded-row]="expandedElement === row"
+        (click)="expandedElement = expandedElement === row ? null : row"></tr>
+  </table>
+  <mat-paginator [pageSize]="5"
+                 [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>
+<app-starship routerLink="starship/"></app-starship>
+
+
+
+
+
