@@ -36,7 +36,7 @@ export class StarshipsComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         // console.log(this.dataSource);
-        console.log(this.starship)
+        // console.log(this.starship)
       }
                )
   }
