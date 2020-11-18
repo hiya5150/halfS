@@ -1,5 +1,5 @@
 export class Starship {
-
+  index: number;
   id: number;
   MGLT: number;
   length: number;
@@ -8,13 +8,13 @@ export class Starship {
   manufacturer: string;
   cost_in_credits: number;
   max_atmosphering_speed: number;
-  crew: string;
+  crew: Starship;
   passengers: number;
   url: string;
   pilots: Pilot[];
 
 }
 
-  class Pilot {
-
+ export class Pilot {
+  url2: string;
 }

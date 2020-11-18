@@ -32,11 +32,9 @@ export class StarshipsComponent implements OnInit {
       res => {
         this.starship = res;
         this.swapi.setData(res)
-        // console.log(res);
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
-        // console.log(this.dataSource);
-        // console.log(this.starship)
+
       }
                )
   }
