@@ -10,8 +10,9 @@ import {Starship} from "../../models/starship";
   styleUrls: ['./starship.component.css']
 })
 export class StarshipComponent implements OnInit {
-  @Input() data: Starship[];
-  // private data;
+  // @Input() data: Starship[];
+  // @Input()datasource
+  private data;
 
   constructor(private swapi: SwapiService) {
     swapi.currentData.subscribe((data => this.data = data))

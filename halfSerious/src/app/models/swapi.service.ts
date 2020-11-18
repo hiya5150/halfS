@@ -11,19 +11,9 @@ import {Starship} from "./starship";
 export class SwapiService {
   private apiData = new BehaviorSubject<Starship[]>(null)
   public currentData = this.apiData.asObservable()
-  // private sList = new BehaviorSubject<any[]>(null)
   baseURL = 'https://swapi.dev/api/';
 
   constructor(private http: HttpClient) { }
-
-  // getStarshipList(page?: number): Observable<Starship[]> {
-  //   return this.http.get<Starship[]>(`${this.baseURL}starships?format=json${this.getByPage(page)}`)
-  //     .pipe(
-  //       tap((data: any) => this.sList.next['results']),)
-  //
-  // }
-  //
-
 
   getStarshipList(page?: number): Observable<Starship[]> {
     return this.http.get<Starship[]>(`${this.baseURL}starships?format=json${this.getByPage(page)}`)
@@ -31,7 +21,6 @@ export class SwapiService {
         map(resp => resp['results']),)
     ;
   }
-
 
   getByPage(page: number): string {
     if (page) { return '&page=' + page; } else { return ''; }
@@ -41,15 +30,7 @@ export class SwapiService {
   setData(data) {
     this.apiData.next(data)
     }
-  //     .pipe(
-  //       tap((data: any) => this.sList.next(data),) )
-  // ;
-  // }
 
-
-  //   getSlist() {
-  //   return this.sList.asObservable().pipe(skipWhile(val => val === null));
-  // }
 
 }
 
