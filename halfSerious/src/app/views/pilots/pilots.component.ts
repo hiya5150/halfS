@@ -11,24 +11,17 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class PilotsComponent implements OnInit {
   // public starship: Starship[];
-  public pilots: Starship;
+  public pilots: Pilot[];
   public name: string;
 
   constructor(public dialogRef: MatDialogRef<Starship>,
-              @Inject(MAT_DIALOG_DATA) data,
-              private swapi: SwapiService,
-              ) {
-    console.log(data);
-    // console.log(this.pilots);
+              @Inject(MAT_DIALOG_DATA) public data:any) {
+    // console.log(data);
+    this.pilots = data.pilots;
+    console.log(this.pilots);
   }
 
   ngOnInit(): void {
-
-    // this.swapi.apiData.subscribe(data => {
-    //   console.log('data on pilots', data);
-    //   this.pilots = data.find(starship => starship.name == this.name);
-    //   // console.log(this.pilots);
-    // })
 
   }
 
