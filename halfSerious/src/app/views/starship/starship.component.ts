@@ -17,15 +17,14 @@ export class StarshipComponent implements OnInit {
   public name: string;
   public pilots: Pilot[];
   public selectedStarship: Starship
-  private dialog: MatDialog;
+  // private dialog: MatDialog;
   private openPilotVariable = {display: 'none'};
   showButton = {display: 'inline-block'};
 
 
 
-
   constructor(private swapi: SwapiService,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute, private dialog: MatDialog) {
     this.name = this.route.snapshot.paramMap.get('name');
      }
 

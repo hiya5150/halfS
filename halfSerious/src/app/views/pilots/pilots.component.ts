@@ -19,6 +19,7 @@ export class PilotsComponent implements OnInit {
     // console.log(data);
     this.pilots = data;
     console.log(this.pilots);
+
   }
 
   ngOnInit(): void {

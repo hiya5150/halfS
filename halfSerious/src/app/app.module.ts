@@ -12,6 +12,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { StarshipComponent } from './views/starship/starship.component';
 import { PilotsComponent } from './views/pilots/pilots.component';
 import {MatCardModule} from "@angular/material/card";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {MatCardModule} from "@angular/material/card";
     MatPaginatorModule,
     MatButtonModule,
     MatCardModule,
+    MatDialogModule
 
   ],
   providers: [],
