@@ -4,6 +4,8 @@ import {Starship} from "../../models/starship";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {BehaviorSubject} from "rxjs";
+// import {MatCardModule} from "@angular/material/card";
+
 
 
 @Component({
@@ -12,31 +14,28 @@ import {BehaviorSubject} from "rxjs";
   styleUrls: ['./starships.component.css']
 })
 export class StarshipsComponent implements OnInit {
-  public starship: Starship[];
+  public starships: Starship[];
   expandedElement: Starship | null;
   public dataSource: MatTableDataSource<Starship>
   displaySWColumns: string[] = ['name', 'MGLT', 'model', 'crew', 'length','StarWarsDetails'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  // shareData: BehaviorSubject<any> = new BehaviorSubject({});
 
-  constructor(private swapi: SwapiService) { }
+  constructor(private swapi: SwapiService) {
+  // this.dataSource.data=[];
+  }
 
   ngOnInit(): void {
-    this.loadStarshipList();
-
   }
 
-  loadStarshipList(): void {
-    this.swapi.getStarshipList().subscribe(
-      res => {
-        this.starship = res;
-        this.swapi.setData(res)
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator;
+  ngAfterContentInit(){
+    this.swapi.apiData.subscribe(data => {
+      console.log("Got Data: ", data);
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
 
-      }
-               )
-  }
+    })
+}
+
 
 }

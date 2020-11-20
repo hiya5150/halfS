@@ -11,6 +11,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatButtonModule} from "@angular/material/button";
 import { StarshipComponent } from './views/starship/starship.component';
 import { PilotsComponent } from './views/pilots/pilots.component';
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PilotsComponent } from './views/pilots/pilots.component';
     MatTableModule,
     MatPaginatorModule,
     MatButtonModule,
+    MatCardModule,
 
   ],
   providers: [],

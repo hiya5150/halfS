@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import construct = Reflect.construct;
+import {HttpClient} from "@angular/common/http";
+import {SwapiService} from "./models/swapi.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'halfSerious';
+
+
+constructor(private swapi: SwapiService) { }
+
+  ngOnInit(): void {
+  this.swapi.getStarshipList();
+}
+
 }

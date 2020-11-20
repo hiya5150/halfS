@@ -1,12 +1,11 @@
-<!--<div>-->
-<!--  <mat-card *ngFor="let res of loadStarship(name)" class="card" >-->
-<!--  <mat-card class="card" *ngIf="starship">-->
-<!--    <mat-card-title>StarWar Details</mat-card-title>-->
-
-
-<p *ngIf="starship">{{name}}</p>
-<!--<div *ngIf="starship.name==name">-->
-<!--</div>-->
-<!--    <button mat-stroked-button color="warn" routerLink="/pilots/{{name}">Pilots</button>-->
-
+<!--<button mat-stroked-button color="primary" [ngStyle]="{'margin':'1rem 2rem'}" (click)="backClicked()">Back</button>-->
+<mat-card class="card" *ngIf="selectedStarship">
+    <mat-card-title>StarWar Details</mat-card-title>
+      <mat-card-subtitle>Name of Starship: {{selectedStarship?.name}}</mat-card-subtitle>
+      <mat-card-subtitle>Model: {{selectedStarship?.model}}</mat-card-subtitle>
+      <mat-card-subtitle>Manufacturer: {{selectedStarship.manufacturer}}</mat-card-subtitle>
+      <mat-card-subtitle>Cost In Credits: {{selectedStarship.cost_in_credits}}</mat-card-subtitle>
+<!--      <mat-card-subtitle>Pilots: {{selectedStarship.pilots}}</mat-card-subtitle>-->
+    </mat-card>
+<!--        <button mat-stroked-button color="warn" routerLink="/pilots/{{name}">Pilots</button>-->
 

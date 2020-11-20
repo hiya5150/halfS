@@ -10,30 +10,22 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class PilotsComponent implements OnInit {
   public starship: Starship[];
-  public pilots: Pilot[];
+  public pilots: Starship;
   public name: string;
 
   constructor(private swapi: SwapiService,
               private route: ActivatedRoute) {
     this.name = this.route.snapshot.paramMap.get('name');
   }
-  loadStarship(): void {
-    this.swapi.getStarshipList().subscribe(
-      res => {
-        this.starship = res;
-        this.swapi.setData(res)
-        // console.log(this.starship[0]);
-        console.log(this.starship[0].name)
-        this.pilots = this.starship[0].pilots;
-        console.log(this.pilots);
-        // console.log(this.name);
-        this.starship = JSON.parse(JSON.stringify((res)))
-        console.log(res);
-      }
-    )
-  }
 
   ngOnInit(): void {
+
+    this.swapi.apiData.subscribe(data => {
+      console.log('subscribed data', data);
+      this.pilots = data.find(starship => starship.name == this.name);
+      console.log(this.pilots);
+    })
+
   }
 
 }

@@ -1,5 +1,5 @@
 export class Starship {
-  index: number;
+
   id: number;
   MGLT: number;
   length: number;

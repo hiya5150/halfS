@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {SwapiService} from "../../models/swapi.service";
-import {BehaviorSubject, Subject} from "rxjs";
 import {Pilot, Starship} from "../../models/starship";
-import {MatTableDataSource} from "@angular/material/table";
 import {ActivatedRoute} from "@angular/router";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+// import {Location} from "@angular/common";
 
 
 @Component({
@@ -14,10 +14,9 @@ import {ActivatedRoute} from "@angular/router";
 export class StarshipComponent implements OnInit {
   public starship: Starship;
   public name: string;
-  public crew: Starship;
   public pilots: Pilot[];
-  private index;
-
+  public selectedStarship: Starship
+  private dialog: MatDialog;
 
 
   constructor(private swapi: SwapiService,
@@ -25,26 +24,20 @@ export class StarshipComponent implements OnInit {
     this.name = this.route.snapshot.paramMap.get('name');
      }
 
-
-  loadStarship(): void {
-    this.swapi.getStarshipList().subscribe(
-      res => {
-        this.starship = JSON.parse(JSON.stringify(res));
-        // this.starship=res[0];
-        this.swapi.setData(res)
-        console.log(this.index);
-        console.log(this.crew);
-        console.log(this.name);
-        console.log(res);
-
-      }
-    )
+    ngOnInit(){
+    // this.loadStarship();
+  this.swapi.apiData.subscribe(data => {
+    console.log('subscribed data', data);
+    this.selectedStarship = data.find(starship => starship.name == this.name);
+    console.log(this.selectedStarship);
+      })
   }
 
-  ngOnInit(){
-    this.loadStarship();
 
-  }
+  // backClicked() {
+  //   this.location.back();
+  //   // console.log(this.location);
+  // }
 
 
 }
