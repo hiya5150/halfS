@@ -17,7 +17,7 @@ export class PilotsComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<Starship>,
               @Inject(MAT_DIALOG_DATA) public data:any) {
     // console.log(data);
-    this.pilots = data.pilots;
+    this.pilots = data;
     console.log(this.pilots);
   }
 
