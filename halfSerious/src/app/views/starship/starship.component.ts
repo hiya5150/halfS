@@ -4,7 +4,7 @@ import {Pilot, Starship} from "../../models/starship";
 import {ActivatedRoute} from "@angular/router";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {PilotsComponent} from "../pilots/pilots.component";
-// import {Location} from "@angular/common";
+import {Location} from "@angular/common";
 
 
 @Component({
@@ -13,7 +13,7 @@ import {PilotsComponent} from "../pilots/pilots.component";
   styleUrls: ['./starship.component.css']
 })
 export class StarshipComponent implements OnInit {
-  // public starship: Starship;
+
   public name: string;
   public pilots: Pilot[];
   public selectedStarship: Starship
@@ -24,12 +24,12 @@ export class StarshipComponent implements OnInit {
 
 
   constructor(private swapi: SwapiService,
-              private route: ActivatedRoute, private dialog: MatDialog) {
+              private route: ActivatedRoute, private dialog: MatDialog, private location: Location) {
     this.name = this.route.snapshot.paramMap.get('name');
      }
 
     ngOnInit(){
-    // this.loadStarship();
+
   this.swapi.apiData.subscribe(data => {
     console.log('subscribed data', data);
     this.selectedStarship = data.find(starship => starship.name == this.name);
@@ -57,10 +57,10 @@ export class StarshipComponent implements OnInit {
   }
 
 
-  // backClicked() {
-  //   this.location.back();
-  //   // console.log(this.location);
-  // }
+  backClicked() {
+    this.location.back();
+    // console.log(this.location);
+  }
 
 
 }
