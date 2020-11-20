@@ -1,9 +1,7 @@
 <div *ngIf="pilots">
-  There are {{pilots.length}} pilots on this ship.
-
+<h1>There are {{pilots.length}} pilots on this ship.</h1>
   <div *ngFor="let res of pilots">
-    <!--  <p>{{pilots[0]}}</p>-->
-
-</div>
+      <p>{{res}}</p>
+  </div>
 </div>
 
