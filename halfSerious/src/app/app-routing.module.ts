@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', component: StarshipsComponent},
   {path: 'starships', component: StarshipsComponent},
   {path: 'starship/:name', component: StarshipComponent},
-  {path: 'pilots/:name', component: PilotsComponent}
+  {path: 'pilots', component: PilotsComponent}
 
 ];
 
